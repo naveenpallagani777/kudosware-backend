@@ -42,8 +42,6 @@ UserSchema.statics.SignUp = async function(user) {
 
     if (existingUser) {
         if (existingUser.email === user.email) throw new Error("email already exists");
-        if (existingUser.email === user.email) throw new Error("Email already exists");
-        if (existingUser.phoneNumber === user.phoneNumber) throw new Error("Phone number already exists");
     }
 
     // Hash password
