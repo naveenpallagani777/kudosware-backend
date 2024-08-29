@@ -40,13 +40,19 @@ const SignUp = async (req, res) => {
 
 const Login = async (req, res) => {
     try {
+        // Handle user Login
         const data = await UserModel.Login(req.body);
+
+        // Generate JWT token
         const token = createToken(data._id);
+
+        // Respond with user data and token
         res.status(200).json({
             data: data,
             token: token
         });
     } catch (err) {
+        // Handle errors
         res.status(400).json({
             error: err.message
         });
